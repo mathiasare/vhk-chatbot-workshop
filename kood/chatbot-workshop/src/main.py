@@ -24,7 +24,11 @@ async def on_ready():
 ####################################################
 ######## LISA SIIA on_message() FUNKTSIOON #########
 
-
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    await message.channel.send(message.content)
 
 
 ####################################################
