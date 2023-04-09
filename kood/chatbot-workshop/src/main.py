@@ -1,6 +1,7 @@
 import os
 import discord
 from dotenv import load_dotenv
+from bot import *
 
 # Laeme globaalsed muutujad .env failist
 load_dotenv()

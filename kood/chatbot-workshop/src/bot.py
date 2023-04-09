@@ -1,4 +1,7 @@
 import os
+from estnltk import Text
+from chatgpt import *
+from api import *
 
 CONFIDENCE_PREFIX = "*"
 RESPONSE_PREFIX = "$"
@@ -12,7 +15,9 @@ def parse_message(message:str) -> str:
 ######################################################################
 
 def get_confidence_rating(message:str) -> int:
-    """ Funktsioon tagastab asjakohasuse hinnangu vahemikus 0-100 (0 ja 100 kaasaarvatud). """
+    """ Funktsioon tagastab asjakohasuse hinnangu vahemikus 0-100 (0 ja 100 kaasaarvatud). \n
+        Suurem number tähendab suuremat asjakohasust.
+    """
     return 0
 
 ######################################################################
