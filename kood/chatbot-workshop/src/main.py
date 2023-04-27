@@ -30,7 +30,6 @@ async def on_message(message):
         return
     await message.channel.send(message.content)
 
-
 ####################################################
 
 # Programmi käivitamine
