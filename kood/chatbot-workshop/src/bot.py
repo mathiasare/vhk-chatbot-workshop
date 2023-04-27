@@ -5,10 +5,11 @@ from api import *
 
 CONFIDENCE_PREFIX = "*"
 RESPONSE_PREFIX = "$"
+KEY_WORDS = []
 
 ######################################################################
 
-def parse_message(message:str) -> str:
+def parse_message(message:str) -> Text:
     """ Funktsioon kasutaja sõnumi töötlemiseks. """
     return message
 
