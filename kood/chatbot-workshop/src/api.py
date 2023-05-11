@@ -16,7 +16,7 @@ def get_api_response(): # Siia lisa ka vajalikud päringu parameetrid
 
     data = None
     if res.ok:
-        data = res.json()
+        data = res.json() # võtame vastusest JSON objekti - tegelikult on see sõnastik! Prindi kusagil funktsiooni väljund välja ja uuri seda.
     else:
         print(f'Staatus: {res.status_code}, Põhjus: {res.reason}')
     
