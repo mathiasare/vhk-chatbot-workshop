@@ -21,8 +21,9 @@ def get_api_response(): # Siia lisa ka vajalikud päringu parameetrid
         print(f'Staatus: {res.status_code}, Põhjus: {res.reason}')
     
     return data
+    
 
-print(get_api_response()) # Testida võid jooksutades seda sama faili koos print käsuga (hiljem eemalda see rida)
+# print(get_api_response()) # Testida võid jooksutades seda sama faili koos print käsuga (hiljem eemalda see rida)
 
 ######################################################
 # SIIA LISA TEISTE PÄRINGUTE TEGEMISE FUNKTSIOONID 
