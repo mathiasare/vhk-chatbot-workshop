@@ -11,9 +11,33 @@ Salvesta see .env failis sisalduva OPENAI_KEY muutujasse.
 
 ### 2. Valmista ette ChatGPT-le saadetav sisend
 
-Selleks täienda [chatgpt.py](http://chatgpt.py) failis olevat get_prompt funktsiooni. Antud funktsioon peaks tagastama sõne, mis sisaldab kogu ChatGPT-le antavat tööjuhendit, kasutaja küsimust ja API päringust saadud vastust.
+Selleks täienda [chatgpt.py](http://chatgpt.py) failis olevat **get_prompt()** funktsiooni. Antud funktsioon peaks tagastama sõne, mis sisaldab kogu ChatGPT-le antavat tööjuhendit, kasutaja küsimust ja API päringust saadud vastust.
 
-Sisendi katsetamiseks kasuta ChatGPT veebilehte: [https://chat.openai.com/](https://chat.openai.com/)
+Eduka “prompti” näide:
+
+---
+
+<aside>
+🧠 Please answer my question based on the JSON response of the
+
+open-meteo weather forecast API provided below. Assume the API response is about the location user asked about. If my question is not about current weather or weather forecast in general please respond with 'Vabandust! Ma ei oska sellele küsimusele vastata.'
+
+My question: { question }
+
+Open-meteo API response: { response }
+
+Please answer my question in Estonian language!
+
+</aside>
+
+---
+
+<aside>
+‼️ Sisendi katsetamiseks kasuta ChatGPT veebilehte: [https://chat.openai.com/](https://chat.openai.com/)
+
+Kindlasti ära esialgseks katsetamiseks kasuta praegust programmi ja OpenAPI tokenit. See kulutab asjata selle töötoa jaoks antud päringute limiiti.
+
+</aside>
 
 ### 3. Tokenite arv
 
@@ -37,3 +61,8 @@ Kui tokenite arv tuleb lubatust suurem, siis on vaja prompti ja arvatavasti API 
 Muuda juturoboti loogikat nii, et API päringu vastuse asemel vastatakse kasutaja küsimusele ChatGPT-lt saadud vastusega.
 
 Viimistle vajadusel kogu rakenduse toimimise loogikat, et kasutaja küsimused saaksid võimalikult hästi vastatud.
+
+<aside>
+🥳 Ja ongi selleks korraks kõik!! Või kas on ikka…
+
+</aside>

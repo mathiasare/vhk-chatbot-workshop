@@ -31,11 +31,23 @@ Samuti võiks selles meetodis lugeda muutujatesse kõik kasutaja sisendist välj
 
 Et aega säästa on sulle antud **********get_api_response()********** juba pooleldi valmis kujul.
 
-Siin on kasutatud requests teeki, et teha juba varem mainitud GET päring.
+Siin on kasutatud [requests](https://docs.python-requests.org/en/latest/index.html) teeki, et teha juba varem mainitud GET päring.
 
-Täienda seda funktsiooni nii, et see teeks sinu valitud API pihta õige päringu,
+Täienda seda funktsiooni nii, et see teeks sinu valitud API pihta õige päringu, lisades juba varem (Osa 3) mainitud päringu komponendid: URL, päringu parameetrid, aadressi muutuja.
 
 Vajadusel loo sarnase kujuga abimeetodeid, kui sul oli plaan kasutada mitut API otspunkti.
+
+<aside>
+📌 Kui funktsioon on valmis, katseta selle jooksutamist ja uuri selle tagastusväärtust!
+
+</aside>
+
+Kui päring toimis õigesti ja staatus oli “OK”, siis kutsutakse tagastatud “response” objekti meetodit nimega .json(). See meetod on abivahend, et luua päringuga tagastatud vastusest sulle juba tuttav andmestruktuur - sõnastik. 
+
+<aside>
+🤖 Proovi läbi katsetamise võtta välja sellest sõnastikust sinu juturobotile vajalik info!
+
+</aside>
 
 ## 4. Juturoboti kasutamine
 
@@ -47,4 +59,7 @@ Juturobot võiks reageerida vastusega ainult siis, kui sõnumi esimene sümbol o
 
 Samuti peaks juturobot vastama API päringust saadud vastusega ainult siis, kui su küsimus oli piisavalt asjakohane.
 
-Kui kõik töötas ilusti siis patsuta endale õlale! Sinu juturobot on peaaegu valmis! 💥
+<aside>
+✅ Kui kõik töötas ilusti siis patsuta endale õlale! Sinu juturobot on peaaegu valmis! 💥
+
+</aside>

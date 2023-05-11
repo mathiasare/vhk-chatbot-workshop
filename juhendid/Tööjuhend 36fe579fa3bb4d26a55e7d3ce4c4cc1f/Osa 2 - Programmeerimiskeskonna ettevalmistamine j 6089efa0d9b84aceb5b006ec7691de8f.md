@@ -9,14 +9,17 @@
 
 - Ava VS Codium
 - Ülevalt ribast vali File → Open Folder → Vali kaust kuhu salvestasid kursuse materjalid
-- Vasakult menüüst vali Extentions ja lae alla järgnevad lisad:
+- Vasakult menüüst vali Extentions ja lae alla järgnev laiendus (suure tõenäosusega see juba on olemas):
     - Python
-    - Pylance
-    - Intellicode
-- Taaskäivita VSCodium, kui ta seda nõuab lisade toimimiseks. (Peaks ilmuma mingi teade aga ei pruugi.)
+- Taaskäivita VSCodium, kui ta seda nõuab laienduse toimimiseks.
 - Liigu tagasi “Explorer” valikule vasakust menüüst
 
-### 2. Seadista kursuse pythoni projekt
+### 2. Ava kursuse projekt VSCodiumis
+
+- Vali ülevalt menüüst File → Open Folder
+- Vali avanenud File Exploreri aknas allalaetud kursuse failide kaust
+
+### 3. Seadista kursuse pythoni projekt
 
 - Ava uus terminaliaken. Ülevalt Terminal → New Terminal
 - Liigu kausta /kood/chatbot-workshop. Selleks jooksuta käsk (kirjuta käsk terminalis ja vajuta Enter):
@@ -46,7 +49,7 @@
 
 Oota kuni teekide installimine on lõpuni jõudnud. Kui kõik õnnestus, siis nüüd peaks olema sinu pythoni projekt seadistatud ehk seda on võimalik jooksutada, muuta ja testida.
 
-### 3. Seadista .env fail
+### 4. Seadista .env fail
 
 <aside>
 📎 .env fail ehk ”dotenv” on programmeerimises kasutusel abifailina, mis sisaldab globaalseid muutujaid ning paroole.
@@ -64,7 +67,7 @@ Oota kuni teekide installimine on lõpuni jõudnud. Kui kõik õnnestus, siis n�
     
 - Muuda faili nimi **********.env********** -ks. Selleks vali vasakult menüüst praegune fail ja vajuta **F2 (**või parem klikk ja Rename)
 
-### 4. Tutvu projekti sisuga
+### 5. Tutvu projekti sisuga
 
 Kohe saad jooksutada oma uut boti rakendust ja äratada oma juturobot ellu! Enne võõra koodi jooksutamist võiks aga enne koodiga tutvuda - muidu kes teab, mida see teha võib 🤪
 
@@ -80,7 +83,7 @@ poetry.lock ja pyproject.toml - need failid aitasid sul hõlpsalt laadida alla p
 
 Nüüd ava **src** kaust. “src” on lühend sõnast “source” või “source code” ehk siin kaustas on kogu projektis olevad pythoni koodifailid. Selle kaustas juba olemasolevate failide kallal hakkadki selle kursuse jooksul tööle, et oma juturobot või õigemini tema teadmised ja oskused valmis meisterdada.
 
-### 5. Hello, world!
+### 6. Hello, world!
 
 <aside>
 🎓 Lõpuks on kätte jõudnud see hetk, et äratada oma juturobot ellu!
@@ -88,12 +91,14 @@ Nüüd ava **src** kaust. “src” on lühend sõnast “source” või “sour
 </aside>
 
 - Selleks ava uus terminali aken või kasuta juba avatud terminali.
-- Veendu, et oled terminaliga kaustas ********************************chatbot-workshop.******************************** Kui mitte, siis liigu eelnevalt mainitud käsuga sinna kausta.
+- Veendu, et oled terminaliga kaustas ********************************src.******************************** Kui mitte, siis liigu eelnevalt mainitud käsuga sinna kausta.
 - Jooksuta käsk (sellega saad ka hiljem käivitada oma rakendust):
 
 ```bash
-poetry run python src/main.py
+poetry run python main.py
 ```
+
+Sellise käsuga saad ka hiljem teisi selle projekti pythoni faile jooksutada, kui on vaja funktsioonide toimimist katsetada.
 
 Nüüd võiksid näha terminali akna väljundi viimasel real tervitust oma juturobotilt!
 
@@ -119,12 +124,13 @@ async def on_ready():
 
 Antud funktsiooni kohal oleva **@client.event** tähisega määrame funktsiooni meie boti jaoks nö “event listener” funktsiooniks. See tähendab, et kui toimub mingi teatav sündmus, siis jooksutatakse antud funktsiooni. Funktsiooni “on_ready” jooksutav sündmus, nagu nimigi vihjab, on hetk kui meie programm on juturoboti ära seadistanud ja juturobot on valmis edasisi käske täitma.
 
-Et robot rääkima saada, peame sarnaselt eelnevale funktsioonile looma funktsiooni, mis reageeriks kasutajate sõnumitele. Selleks on Discordi teegil olemas funktsioon nimega “on_message”, mis võtab parameetri nimega “message”. 
+Et robot rääkima saada, peame sarnaselt eelnevale funktsioonile looma funktsiooni, mis reageeriks kasutajate sõnumitele. Selleks on Discordi teegil olemas funktsioon nimega “on_message”, mis võtab parameetri nimega “message”, kus sisaldubki kasutaja saadetud sõnum. 
 
 “message” on objekt (omamoodi sõnastik), mis sisaldab lisaks sõnumile endale ka muud kasulikku infot. Näiteks sõnumi autor, kuulatava kanali nimi ja serveri nimi. Et seda infot kasutada on vaja programmis lihtsalt nendele objekti atribuutidele viidata:
 
 ```python
 message.author # sõnumi autor
+message.author.name # sõnumi autori nimi
 message.channel # sõnumi kanal
 message.guild # server
 message.content # sõnumi sisu
@@ -147,7 +153,7 @@ Eelnevast infost võime kokku panna järgneva funktsiooni:
 ```python
 @client.event
 async def on_message(message):
-    await message.channel.send('Hi, mom!')
+    await message.channel.send('Tere, ' + message.author.name + '!')
 ```
 
 **NB!** Selle programmi loogika juures aga on üks teatav probleem. Kas sa oled mõelnud, mis juhtub, kui meie bot ise saadab sõnumi kanalisse? Kas antud juhul saadab “on_message” uue sõnumi ja tekib lõpmatu tsükkel? Kui me selle küsimuse siin niimoodi tõstatasime, siis sa ilmselt tead juba vastust!
@@ -160,6 +166,13 @@ if message.author == client.user:
 ```
 
 Nii lõpetab funktsioon boti enda sõnumile reageerides töö enne, kui see jõuab hakkata pahandust tekitama.
+
+Samuti võiksid lisada ka järgneva kontrolli, et bot reageeriks sõnumitele esialgu ainult sinu kanalis:
+
+```python
+if message.channel.name != "kanali-nimi":
+    return
+```
 
 Nüüd aga peaks olema asi korras ning saad asuda katsetuse juurde! Pane oma juturobot sinu sõnumile vastama! (Pro tip: eelmist käsklust saad terminalis kasutada, kui vajutad peale terminali valimist “nool üles” klahvi).
 
