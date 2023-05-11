@@ -1,10 +1,12 @@
 import os
 import openai
+from dotenv import load_dotenv
 
+load_dotenv()
 OPENAI_KEY = os.getenv('OPENAI_KEY')
 
 openai.organization = "org-nyfQqCyXaWnevASZBYqd4JAf"
-openai.api_key = "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"
+openai.api_key = OPENAI_KEY
 
 ######################################################################
 
