@@ -9,9 +9,20 @@ API_URL = "" # Siia lisa oma valitud API aadress/url.
 
 def get_api_response(): # Siia lisa ka vajalikud päringu parameetrid
     """ Funktsioon enda valitud API päringu tegemiseks ja saadud vastuse tagastamiseks """
-    pass
 
-#print(get_api_response()) # Testida võid jooksutades seda sama faili koos print käsuga (hiljem eemalda see rida)
+    res = requests.get(API_URL + "/somePathVariable", params = {
+        "someQueryParam" : "someValue"
+    })
+
+    data = None
+    if res.ok:
+        data = res.json()
+    else:
+        print(f'Staatus: {res.status_code}, Põhjus: {res.reason}')
+    
+    return data
+
+print(get_api_response()) # Testida võid jooksutades seda sama faili koos print käsuga (hiljem eemalda see rida)
 
 ######################################################
 # SIIA LISA TEISTE PÄRINGUTE TEGEMISE FUNKTSIOONID 
