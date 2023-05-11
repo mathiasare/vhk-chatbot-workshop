@@ -3,6 +3,7 @@ import openai
 
 OPENAI_KEY = os.getenv('OPENAI_KEY')
 openai.api_key = OPENAI_KEY
+openai.organization = "org-nyfQqCyXaWnevASZBYqd4JAf"
 
 ######################################################################
 
