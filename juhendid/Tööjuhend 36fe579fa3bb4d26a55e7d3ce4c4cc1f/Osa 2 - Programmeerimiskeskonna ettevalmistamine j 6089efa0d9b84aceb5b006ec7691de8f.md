@@ -5,6 +5,17 @@
 
 </aside>
 
+### 0. Seadista Poetry (teekide installimise tööriist)
+
+- Ava Windows Powershell
+- Jooksuta käsk
+    
+    ```python
+    (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
+    ```
+    
+- Kui valmis siis kutsu juhendaja enda juurde - lisan selle PATHi et seda saaks pärast lihtsamini kasutada
+
 ### 1. Seadista VS Codium ja tutvu sellega
 
 - Ava VS Codium
