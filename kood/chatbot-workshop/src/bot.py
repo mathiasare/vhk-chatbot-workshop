@@ -1,42 +1,42 @@
 import os
-from estnltk import Text
 from chatgpt import *
 from api import *
-from typing import List
+import nltk
+
+nltk.download("punkt")
+nltk.download("averaged_perceptron_tagger")
+
 
 CONFIDENCE_PREFIX = "*"
 RESPONSE_PREFIX = "$"
 KEY_WORDS = []
 
 ######################################################################
-#ESTNLTK abimeetodid
+#NLTK abimeetodid
 
-def get_text(message:str) -> Text:
-    """ Funktsioon ESTNLTK töödeldud Text objekti tagastamiseks """
-    return
+def get_tokens(message):
+    """ Funktsioon tokenite ehk sõnade tagastamiseks """
+    return nltk.word_tokenize(message)
 
-def get_words(message:Text) -> List[str]:
-    """ Funktsioon kasutaja sõnumist kõikide sõnade tagastamiseks"""
-
-def get_lemmas(message:Text) -> List[str]:
+def get_lemmas(tokens):
     """ Funktsioon kasutaja sõnumist lemmade järjendi tagastamiseks """
     return
 
-def get_location(message:Text) -> str:
+def get_location(tokens) -> str:
     """ Funktsioon kasutaja sõnumist asukoha tagastamiseks """
     return
 
-def get_time(message:Text) -> str:
+def get_time(tokens) -> str:
     """ Funktsioon kasutaja sõnumist aja tagastamiseks """
     return
 
-def get_person(message:Text) -> str:
+def get_person(tokens) -> str:
     """ Funktsioon kasutaja sõnumist isiku nime tagastamiseks """
     return
 
 ######################################################################
 
-def get_confidence_rating(message:Text) -> int:
+def get_confidence_rating(lemmas) -> int:
     """ Funktsioon tagastab asjakohasuse hinnangu vahemikus 0-100 (0 ja 100 kaasaarvatud). \n
         Suurem number tähendab suuremat asjakohasust.
     """
@@ -44,9 +44,9 @@ def get_confidence_rating(message:Text) -> int:
 
 ######################################################################
 
-def get_response(question:str, message:Text) -> str:
+def get_response(question, lemmas) -> str:
     """ Funktsioon kasutaja sõnumile vastamiseks. Otsustab vastavalt kasutaja sisendile, mida teha tuleks. """
-    confidence = get_confidence_rating(message)
+    confidence = get_confidence_rating(lemmas)
 
     if confidence == 100:
         return "Oled ikka enesekindel!"
@@ -64,5 +64,6 @@ def decide_action(message:str):
     pass
 
 ######################################################################
+
 
 ######## SIIA LISA ENDA TEHTUD ABIFUNKTSIOONID (KUI ON VAJA) #########
