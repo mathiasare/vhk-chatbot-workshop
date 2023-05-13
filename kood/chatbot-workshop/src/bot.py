@@ -16,7 +16,7 @@ KEY_WORDS = []
 
 def get_tokens(message):
     """ Funktsioon tokenite ehk sõnade tagastamiseks """
-    return nltk.word_tokenize(message)
+    return
 
 def get_lemmas(tokens):
     """ Funktsioon kasutaja sõnumist lemmade järjendi tagastamiseks """
