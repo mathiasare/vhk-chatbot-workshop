@@ -2,9 +2,13 @@ import os
 from chatgpt import *
 from api import *
 import nltk
+from nltk.stem import WordNetLemmatizer
 
 nltk.download("punkt")
 nltk.download("averaged_perceptron_tagger")
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
+nltk.download('wordnet')
 
 
 CONFIDENCE_PREFIX = "*"
@@ -18,7 +22,7 @@ def get_tokens(message):
     """ Funktsioon tokenite ehk sõnade tagastamiseks """
     return
 
-def get_lemmas(tokens):
+def get_lemmas(message):
     """ Funktsioon kasutaja sõnumist lemmade järjendi tagastamiseks """
     return
 
@@ -30,8 +34,7 @@ def get_time(tokens) -> str:
     """ Funktsioon kasutaja sõnumist aja tagastamiseks """
     return
 
-def get_person(tokens) -> str:
-    """ Funktsioon kasutaja sõnumist isiku nime tagastamiseks """
+def get_person(sentence):
     return
 
 ######################################################################
@@ -66,4 +69,4 @@ def decide_action(message:str):
 ######################################################################
 
 
-######## SIIA LISA ENDA TEHTUD ABIFUNKTSIOONID (KUI ON VAJA) #########
+######## SIIA LISA ENDA TEHTUD ABIFUNKTSIOONID (KUI ON VAJA) ########
