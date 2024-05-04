@@ -1,8 +1,7 @@
-# Chatbot Workshop (base code)
+# Chatbot Workshop
+Author and coordinator: Mathias Are (are.mathias@gmail.com)
 
-## VHK Engineering Camp, spring 2023
+This repository contains LLM chatbot workshop base code and instructions (in Estonian) for VHK Engineering Camp, spring 2023.
 
-### Author and coordinator: Mathias Are (are.mathias@gmail.com)
+There is an example solution available in the "proovilahendus" branch.
 
-### Materials are available in Github: https://github.com/mathiasare/vhk-chatbot-workshop
-### Licence: MIT
