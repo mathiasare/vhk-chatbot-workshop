@@ -1,6 +1,8 @@
 # VHK inseneeria laager 2023
 ## Juturoboti töötuba | Chatbot workshop
 
-Serveri link: https://discord.gg/M7kZv2tWdF
+Author and coordinator: Mathias Are (are.mathias@gmail.com)
 
-## Autor: Mathias Are
+This repository contains LLM chatbot workshop base code and instructions (in Estonian) for VHK Engineering Camp, spring 2023.
+
+There is an example solution available in the "proovilahendus" branch.
